@@ -1,0 +1,168 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		幻灯片
+	</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	text-align: center;
+	background-color:#444444;
+	}
+#content{
+	width:500px;
+	height:350px;
+	margin:100px auto;
+	border-width:10px;
+    border-style:solid;
+    -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -khtml-border-radius: 15px;
+    border-radius:15px;
+    border-color:#aaaaaa;
+    -moz-box-shadow: 0 2px 10px black;
+  -webkit-box-shadow: 0 2px 10px black;
+  -o-box-shadow: 0 2px 10px black;
+    box-shadow: 0  2px 10px black;
+    position:relative;
+}
+#ad,#ae{
+	width:500px;
+	height:30px;
+	background-color: #666666;
+	filter:alpha(opacity:80); opacity:0.8;
+	line-height: 30px;
+	position:absolute;
+	font-size: 17px;
+	text-align:center;
+}
+#ae{
+	bottom:0px;
+	left:0px;
+}
+#ad{
+    top:0px;
+	left:0px;	
+}
+a{
+	width:30px;
+	height:30px;
+	background-color:#9f88ff;
+	filter:alpha(opacity:80); opacity:0.8;
+	top:170px;
+	position:absolute;;
+	text-align:center;
+	line-height: 30px;
+	text-decoration: none;
+	font-size:17px;
+	padding:10px;
+
+}
+#ab{
+	left:10px;
+}
+#ac{
+	right:10px;
+}
+a:hover{
+	filter:alpha(opacity:90); opacity:0.9;
+}
+#lmg{
+	width:500px;
+	height:350px;
+	postion:absolute;
+}
+#content p{
+	width:500px;
+	height:50px;
+	position: absolute;
+	top:-80px;
+	cursor: pointer;
+
+}
+</style>
+</head>
+<body>
+<div id="content">
+	<a id="ab" href="javascript:;"><</a>
+	<a id="ac" href="javascript:;">></a>
+ 	<span id ="ad">I love You...</span>
+ <img id="lmg" src="./img/1.jpg">
+<strong id="ae">Forever...</strong>
+<p>
+	<input type="button"  id="but1" value="循环切换">
+	<input type="button"  id="but2"  value="顺序切换">
+</p>
+</div>
+	</body>
+
+<script>
+window.onload=function(){
+var oImg = document.getElementById('lmg');
+//var onOff = true;		// 布尔值：true 1  false 0
+var oAa=document.getElementById('ab');
+var oADD=document.getElementById('ad');
+var num=0;
+var oAc=document.getElementById('ac');
+var arrText=['小可爱1','小可爱2','小可爱3','小可爱4','小可爱5'];
+var arrImg=['img/11.jpg','img/12.jpg','img/13.jpg','img/14.jpg','img/15.jpg']
+var arrTxt=['1','2','3','4','5']
+var oAe=document.getElementById('ae');
+var onOff=true;
+var oBut1=document.getElementById('but1');
+var oBut2=document.getElementById('but2');
+function ghu(){
+oImg.src=arrImg[num];
+oADD.innerHTML=arrText[num];
+oAe.innerHTML=arrTxt[num]+'/'+'5';
+}
+ghu();
+
+oBut1.onclick=function(){
+	onOff=true;
+};
+oBut2.onclick=function(){
+	onOff=false;
+};
+
+oAc.onclick=function (){
+   num++;
+
+	if(num==arrImg.length)
+	{
+		if(onOff){
+		
+		num=0;	
+		}
+		else{
+			alert('这已经是最后一张了');
+			num=arrImg.length-1;
+		}
+		
+		}
+	ghu();
+    };
+
+
+oAa.onclick=function (){
+	num--;
+	
+	if(num==-1){
+		if(onOff){
+		num=arrImg.length-1;
+	}
+	else{
+		alert('这已经是第一张了');
+		num=0;
+	}
+	}
+    ghu();
+};
+};
+</script>
+
+</html>
